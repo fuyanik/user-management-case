@@ -2,7 +2,7 @@
 
 A comprehensive user management application built with Next.js, featuring JWT authentication, user CRUD operations, and bulk user upload via Excel files.
 
-## 🚀 Tech Stack
+##  Tech Stack
 
 - **Frontend**: Next.js 16, React 19, TailwindCSS 4
 - **Backend**: Next.js API Routes
@@ -13,7 +13,7 @@ A comprehensive user management application built with Next.js, featuring JWT au
 - **Excel Parsing**: xlsx
 - **Containerization**: Docker & Docker Compose
 
-## 📋 Features
+##  Features
 
 - ✅ JWT-based authentication with secure HTTP-only cookies
 - ✅ Protected routes with middleware
@@ -25,13 +25,13 @@ A comprehensive user management application built with Next.js, featuring JWT au
 - ✅ Comprehensive input validation
 - ✅ Responsive UI with modern design
 
-## 🛠️ Prerequisites
+##  Prerequisites
 
 - Node.js 20+
 - Docker & Docker Compose (for containerized deployment)
 - PostgreSQL (if running locally without Docker)
 
-## 🚀 Getting Started
+##  Getting Started
 
 ### Option 1: Using Docker (Recommended)
 
@@ -43,7 +43,7 @@ A comprehensive user management application built with Next.js, featuring JWT au
 
 2. **Start the development database**
    ```bash
-   docker-compose -f docker-compose.dev.yml up -d
+   docker compose -f docker-compose.dev.yml up -d
    ```
 
 3. **Install dependencies**
@@ -97,35 +97,35 @@ A comprehensive user management application built with Next.js, featuring JWT au
    docker compose up --build -d
    ```
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 ├── prisma/
+│   ├── migrations/        # Database migrations
 │   ├── schema.prisma      # Database schema
-│   └── seed.ts            # Database seeding script
+│   └── seed.js            # Database seeding script
 ├── src/
 │   ├── app/
 │   │   ├── api/           # API routes
 │   │   │   ├── auth/      # Authentication endpoints
 │   │   │   └── users/     # User management endpoints
-│   │   ├── dashboard/     # Dashboard page
+│   │   ├── dashboard/     # Dashboard pages
 │   │   ├── globals.css    # Global styles
 │   │   ├── layout.tsx     # Root layout
 │   │   └── page.tsx       # Login page
 │   ├── components/
-│   │   ├── dashboard/     # Dashboard components
 │   │   ├── providers/     # React context providers
 │   │   └── ui/            # Reusable UI components
 │   ├── hooks/             # Custom React hooks
 │   ├── lib/               # Utility functions and configurations
+│   ├── middleware.ts      # Next.js middleware for auth
 │   └── types/             # TypeScript type definitions
 ├── docker-compose.yml     # Production Docker configuration
 ├── docker-compose.dev.yml # Development Docker configuration
-├── Dockerfile             # Docker build instructions
-└── middleware.ts          # Next.js middleware for auth
+└── Dockerfile             # Docker build instructions
 ```
 
-## 🔐 Authentication Flow
+##  Authentication Flow
 
 1. User submits login credentials
 2. Server validates credentials against database
@@ -134,7 +134,7 @@ A comprehensive user management application built with Next.js, featuring JWT au
 5. Middleware checks token validity on protected routes
 6. If token is expired/invalid, user is redirected to login
 
-## 📊 Excel Upload Format
+##  Excel Upload Format
 
 The Excel file should contain the following columns:
 
@@ -154,7 +154,7 @@ The Excel file should contain the following columns:
 - If ANY error occurs, NO users are added (transaction rollback)
 - Errors include specific row numbers for easy debugging
 
-## 🔒 Security Features
+##  Security Features
 
 - **Password Hashing**: bcrypt with 12 salt rounds
 - **JWT Tokens**: Signed with HS256, configurable expiration
@@ -163,7 +163,7 @@ The Excel file should contain the following columns:
 - **Transaction Safety**: All-or-nothing bulk operations
 - **Role-based Access**: Admin-only operations protected
 
-## 📝 API Endpoints
+##  API Endpoints
 
 ### Authentication
 - `POST /api/auth/login` - User login
@@ -175,7 +175,7 @@ The Excel file should contain the following columns:
 - `POST /api/users` - Create single user
 - `POST /api/users/upload` - Bulk upload via Excel
 
-## 🧪 Environment Variables
+##  Environment Variables
 
 ```env
 # Database
@@ -189,7 +189,7 @@ JWT_EXPIRES_IN="1d"
 NODE_ENV="development"
 ```
 
-## 📦 Available Scripts
+##  Available Scripts
 
 ```bash
 # Development
@@ -211,21 +211,21 @@ npm run start        # Start production server
 npm run lint         # Run ESLint
 ```
 
-## 🐳 Docker Commands
+##  Docker Commands
 
 ```bash
 # Development (database only)
-docker-compose -f docker-compose.dev.yml up -d
-docker-compose -f docker-compose.dev.yml down
+docker compose -f docker-compose.dev.yml up -d
+docker compose -f docker-compose.dev.yml down
 
 # Production (full stack)
-docker-compose up --build
-docker-compose down
+docker compose up --build
+docker compose down
 
 # View logs
-docker-compose logs -f app
+docker compose logs -f
 ```
 
-## 📄 License
+##  License
 
 MIT License - feel free to use this project for learning or production.
